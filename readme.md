@@ -80,6 +80,10 @@ The project will use:
 </p>
 
 - Run any **Test Cases** available in following classes.
+<p align="center">
+  <img src="/assets/domain-layer-test-cases.png" alt="Onion Architecture" width="400"/>
+</p>
+
 - `DomainCustomerAccountServiceTests.java` & `DomainFundTransferServiceTests.java` 
 
 
