@@ -1,13 +1,13 @@
 # 🧅 Onion Architecture — Bank Account Example (Spring Boot)
 
 This repository will only demonstrate the **Onion Architecture** pattern using a **Bank Ledger** example in **Spring Boot**.  
-Currently, the implementation is **pending**, but the structure and design approach are already defined.
+Currently, the implementation is **in progress**, but the structure and design approach are already defined.
 
 ---
 
 ## 🚧 Project Status
 > 🕐 Work in Progress  
-Implementation is **coming soon** — code structure and architecture plan are being prepared.
+To understand the onion architecture, the basic implementation is done, however the complete application is **in progress**.
 
 ---
 
@@ -25,15 +25,11 @@ The example will revolve around a **Bank Ledger system**, fully focused on Onion
 - Transaction
   - Internal
   - External
-- Loan
-  - Personal finance
-  - Home finance
-  - Car finance
 
 ---
 
 <p align="center">
-  <img src="/Onion-architecture.png" alt="Onion Architecture" width="400"/>
+  <img src="/assets/Onion-architecture.png" alt="Onion Architecture" width="400"/>
 </p>
 
 ## 🧠 What Is Onion Architecture?
@@ -59,8 +55,57 @@ Outer layers depend on inner layers. “Independence of frameworks, databases, a
 
 ## 🏗️ Planned Implementation (Spring Boot)
 The project will use:
-- **Spring Boot 3+**
+- **Spring Boot 3.5.7**
 - **Spring Data JPA**
 - **H2/PostgreSQL database**
 - **Lombok**
 - **JUnit + Mockito** for testing
+
+## 📦️ Application Project Structure (Intellij idea)
+
+- Main project directory structure
+<p align="center">
+  <img src="/assets/project-directory-structure.png" alt="Onion Architecture" width="400"/>
+</p>
+
+- Project package structure
+<p align="center">
+  <img src="/assets/project-package-structure.png" alt="Onion Architecture" width="400"/>
+</p>
+
+## 🧪 Test Domain layer without Spring boot.
+
+<p align="center">
+  <img src="/assets/project-directory-structure.png" alt="Onion Architecture" width="400"/>
+</p>
+
+- Run any **Test Cases** available in following classes.
+- `DomainCustomerAccountServiceTests.java` & `DomainFundTransferServiceTests.java` 
+
+
+## 🚀 Initial Application Setup & Run
+
+- Clone application
+- Open in intellij idea
+- Run `BankledgerOnionArchitectureApplication.java` class
+- Open any `Rest api` client and add following payload:
+```
+curl --location 'localhost:8080/customers/v1/create' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": 1,
+  "name": "John Doe",
+  "cellPhoneNumber": "+1-555-1234567",
+  "email": "john.doe@example.com",
+  "idCardNumber": "ID-999888777",
+  "passportNumber": "P-1234567",
+  "businessCustomer": true,
+  "address": "123 Street, City, Country",
+  "customerDocument": {
+    "length": 12000000,
+    "extension": ".pdf"
+  }
+}
+```
+
+- To access `H2 datbase` open browser and paste url `http://localhost:8080/h2-console`
